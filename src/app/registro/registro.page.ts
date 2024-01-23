@@ -32,31 +32,37 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-  async registrarse(){
-    var f = this.formularioRegistro.value;
+ // registro.page.ts
+async registrarse() {
+  var f = this.formularioRegistro.value;
 
-    if(this.formularioRegistro.invalid){
-      //this.router.navigate(['/registro']);
-      const alert = await this.alertController.create({
-        header: 'Datos incorrectos',
-        message: 'Tienes que llenar todos los campos con sus datos correctos',
-        buttons: ['Aceptar']
-      });
-  
-      await alert.present();
-      return;
-    }else{
-      this.navCtrl.navigateRoot('home');
-    }
+  if (this.formularioRegistro.invalid) {
+    const alert = await this.alertController.create({
+      header: 'Datos incorrectos',
+      message: 'Tienes que llenar todos los campos con sus datos correctos',
+      buttons: ['Aceptar']
+    });
 
+    await alert.present();
+    return;
+  } else {
+    // Almacena el usuario como una cadena JSON en el local storage
     var usuario = {
       nombre: f.nombre,
       password: f.password
     }
 
-    localStorage.setItem('usuario',JSON.stringify(usuario));
+    // Guarda el usuario en la lista de usuarios
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    usuarios.push(usuario);
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-    localStorage.setItem('ingresado','true');
+    // Actualiza los datos del último usuario registrado
+    localStorage.setItem('lastLoggedInUser', JSON.stringify(usuario));
+
+    localStorage.setItem('ingresado', 'true');
     this.navCtrl.navigateRoot('home');
   }
+}
+
 }

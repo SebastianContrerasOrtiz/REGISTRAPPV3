@@ -30,37 +30,44 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  async login() {
-    const f = this.loginForm.value;
+// login.page.ts
+async login() {
+  const f = this.loginForm.value;
 
-    // Tu lógica de autenticación aquí
+  // Ejemplo de lógica de autenticación, ajusta según tus necesidades
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const usuario = usuarios.find(u => u.nombre === f.nombre && u.password === f.password);
 
-    // Ejemplo de lógica de autenticación, ajusta según tus necesidades
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    const usuario = usuarios.find(u => u.nombre === f.nombre && u.password === f.password);
+  if (usuario) {
+    // Verifica si el usuario actualmente registrado es el último usuario que inició sesión
+    const lastLoggedInUser = JSON.parse(localStorage.getItem('lastLoggedInUser')) || {};
+    const isLastUser = lastLoggedInUser.nombre === f.nombre && lastLoggedInUser.password === f.password;
 
-    if (usuario) {
+    if (!isLastUser) {
+      // Si no es el último usuario, actualiza los datos del último usuario
       localStorage.setItem('lastLoggedInUser', JSON.stringify({ nombre: f.nombre, password: f.password }));
-      console.log('Ingresado');
-      this.navControl.navigateRoot('/home');
-    } else {
-      this.navControl.navigateRoot('/login');
-
-      const alert = await this.alertController.create({
-        header: 'Datos Incorrectos',
-        message: 'Los datos que ingresaste no están en la base de datos.',
-        buttons: ['Aceptar']
-      });
-
-      await alert.present();
     }
+
+    console.log('Ingresado');
+    this.navControl.navigateRoot('/home');
+  } else {
+    this.navControl.navigateRoot('/login');
+
+    const alert = await this.alertController.create({
+      header: 'Datos Incorrectos',
+      message: 'Los datos que ingresaste no están en la base de datos.',
+      buttons: ['Aceptar']
+    });
+
+    await alert.present();
   }
+}
+
 
   Registro() {
     this.router.navigate(['/registro']);  // Navega a la página de registro cuando se llama.
   }
 }
-
 
 
 
