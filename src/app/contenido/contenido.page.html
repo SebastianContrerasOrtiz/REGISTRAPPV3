@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-title class="ion-padding-top ion-text-center">
+      Portal Alumno Registrados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="logo">
+    <img src="../../assets/Img/RegistrAPP.png" alt="Logo Duoc">
+  </div>
+  <br>
+  <br>
+
+  <ion-list >
+    <ion-item *ngFor="let item of getData">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>
+        <h2>{{ item.name }}</h2>
+        <h2>{{ item.email }}</h2>
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+
+
+  <br>
+  <div class="boton">
+    <ion-button color="secondary" [routerLink]="['/home']">Volver</ion-button>
+  </div>
+
+</ion-content>
+

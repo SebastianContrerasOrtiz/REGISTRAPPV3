@@ -1,0 +1,45 @@
+<ion-header class="background">
+  <ion-toolbar color="warning">
+    <ion-title class="ion-padding-top ion-text-center">
+      Login RegistrAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <ion-card>
+    <div class="logo">
+      <img src="../../assets/Img/user.png" alt="Logo user">
+    </div>
+    <form [formGroup]="loginForm"> <!--componente TypeScript que se está utilizando para gestionar el estado del formulario.-->
+      <ion-row><!--filas-->
+        <ion-col><!--columnas-->
+          <ion-item><!--agrupar etiquetas-->
+            <ion-label position="floating">Usuario</ion-label> <!--floating etiqueta aparecerá encima del campo de entrada cuando el usuario comience a escribir.-->
+            <ion-input formControlName="nombre" type="text" ([ngModel])="nombre" placeholder="ej sebastian_123"></ion-input> <!--formControlName está vinculado al control "nombre" definido en el FormGroup del componente. -->
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" type="password" placeholder="maximo 6 a 10 caracteres"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <div class="ingresar">
+        <ion-button (click)="login()" color="secondary" >Iniciar Sesión</ion-button>
+      </div>
+    </form>
+
+    <div class="enlace">
+      <a>¿Olvidaste tu contraseña?</a>
+      <a href="recuperar" class="enlace"> Recuperar Contraseña </a>
+    </div>
+
+    <ion-card-content style="text-align: center;">
+      <ion-button color="secondary" (click)="Registro()">Registrarse</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

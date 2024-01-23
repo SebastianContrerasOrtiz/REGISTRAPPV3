@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-button color="dark" [routerLink]="['/login']">Volver</ion-button>  
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background" fullscreen>
+  <div class="logo">
+    <img src="../../assets/Img/RegistroApp.jpg" alt="Logo Duoc">
+  </div>
+
+  
+  <br>
+  <br>
+
+ 
+  <form [formGroup]="formularioRegistro">
+    <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="nombre" type="text" ([ngModel])="nombre"  placeholder="ej:Franco_123"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="Maximo 6 a 10 caracteres"></ion-input>
+    </ion-item>
+    <br>
+    
+    <br>
+  
+    
+    <br>
+  <div class="registrarse">
+    <ion-button (click)="registrarse()" color="secondary">Registrarse</ion-button>
+  </div>
+  </form>
+
+
+</ion-content>

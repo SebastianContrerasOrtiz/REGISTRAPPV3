@@ -1,27 +1,19 @@
-#container {
+.boton{
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  color:gold;
+}
+.historial{
+  background-color: var(--ion-color-secondary-shade);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.saludo{
+  text-align: center;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.logo{
+  text-align:center;
+  width: 250px;
+  display: block;
+  margin: auto;
+  
 }

@@ -1,20 +1,44 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="warning">
+    <ion-title class="ion-padding-top ion-text-center">
+      
+      Portal de RegistroApp alumno Duoc
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="logo">
+    <img src="../../assets/Img/RegistrAPP.png" alt="Logo Duoc">
   </div>
+  
+  <br>
+  
+  <div class="saludo">
+    <ion-label>Bienvenido Alumno {{usuario}}</ion-label>
+</div>
+
+<div class="ion-padding-top ion-text-center">
+  <h3>Registra tu Asistencia </h3>
+</div>
+
+<ion-card-content>
+  <ion-button expand="full" class="clos" (click)="scan()">Programación Web</ion-button>
+  <ion-button expand="full" class="clos" (click)="scan()">Ingeneria de Software</ion-button>
+  <ion-button expand="full" class="clos" (click)="scan()">Consulta de base de datos</ion-button>
+  <ion-button expand="full" class="clos" (click)="scan()">Ingles intermedio</ion-button>
+  <ion-button color="primary" expand="full" [routerLink]="['/historial']">Historial Asistencia del alumno</ion-button>
+  <ion-button color="primary" expand="full" [routerLink]="['/contenido']">Registrados</ion-button>
+</ion-card-content>
+<br>
+<div class="boton">
+  <ion-button color="warning" (click)="logout()">Cerrar Sesión</ion-button>
+</div>
+
+
+
 </ion-content>
+
+
+
