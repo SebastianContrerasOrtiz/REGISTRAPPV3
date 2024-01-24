@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IonicComponentPage } from './ionic-component/ionic-component.page';
+
+
 
 
 //import { DbService } from './servicio/db.service';
@@ -42,11 +45,19 @@ const routes: Routes = [
     redirectTo: 'contenido',
     pathMatch: 'full'
   },
+
   {
-    path: 'contacto',
-    redirectTo: 'contacto',
+    path: 'contenido',
+    redirectTo: 'contenido',
     pathMatch: 'full'
   },
+
+  {
+    path: 'ionic-component',
+    component: IonicComponentPage,
+  },
+
+
   {
     path: '**',
     redirectTo: 'e404',
@@ -85,9 +96,11 @@ const routes: Routes = [
     loadChildren: () => import('./e404/e404.module').then( m => m.E404PageModule)
   },
   {
-    path: 'contacto',
-    loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
+    path: 'ionic-component',
+    loadChildren: () => import('./ionic-component/ionic-component.module').then( m => m.IonicComponentPageModule)
   },
+
+
  
 
  

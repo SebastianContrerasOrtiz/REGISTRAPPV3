@@ -1,29 +1,25 @@
+<!-- ionic-component.page.html -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Contacto
-    </ion-title>
+    <ion-title>IonicComponent</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form class="contact-form" (submit)="enviarCorreo($event)">
+  <form class="contact-form" (submit)="sendEmail($event)">
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating">Name</ion-label>
       <ion-input type="text" name="user_name" [(ngModel)]="formData.user_name"></ion-input>
     </ion-item>
-
     <ion-item>
-      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-label position="floating">Email</ion-label>
       <ion-input type="email" name="user_email" [(ngModel)]="formData.user_email"></ion-input>
     </ion-item>
-
     <ion-item>
-      <ion-label position="floating">Mensaje</ion-label>
+      <ion-label position="floating">Message</ion-label>
       <ion-textarea name="message" [(ngModel)]="formData.message"></ion-textarea>
     </ion-item>
-
-    <ion-button type="submit">Enviar</ion-button>
+    <ion-button type="submit" expand="full">Send</ion-button>
   </form>
 </ion-content>
 
